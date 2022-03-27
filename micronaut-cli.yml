@@ -1,0 +1,6 @@
+applicationType: cli
+defaultPackage: me.bipster
+testFramework: spock
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [ annotation-api, app-name, gradle, http-client, jackson-databind, kotlin, kotlin-build, log4j2, micronaut-build, picocli, picocli-kotlin-application, picocli-spock, properties, readme, shade, spock ]
