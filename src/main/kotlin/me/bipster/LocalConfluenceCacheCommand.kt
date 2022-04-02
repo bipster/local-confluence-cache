@@ -1,16 +1,17 @@
 package me.bipster
 
 import io.micronaut.configuration.picocli.PicocliRunner
-import io.micronaut.context.ApplicationContext
+import io.micronaut.context.annotation.Property
+import jakarta.inject.Inject
 
-import picocli.CommandLine
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option
-import picocli.CommandLine.Parameters
 
 @Command(name = "local-confluence-cache", description = ["..."],
         mixinStandardHelpOptions = true)
-class LocalConfluenceCacheCommand : Runnable {
+class LocalConfluenceCacheCommand @Inject constructor (
+        @Property(name = "confluence.token") private var confluenceToken: String,
+    ) : Runnable {
 
     @Option(names = ["-v", "--verbose"], description = ["..."])
     private var verbose : Boolean = false
