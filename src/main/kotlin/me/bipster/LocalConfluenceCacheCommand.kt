@@ -10,7 +10,7 @@ import picocli.CommandLine.Option
 @Command(name = "local-confluence-cache", description = ["..."],
         mixinStandardHelpOptions = true)
 class LocalConfluenceCacheCommand @Inject constructor (
-        @Property(name = "confluence.token") private var confluenceToken: String,
+        private var confluenceClient : ConfluenceClient,
     ) : Runnable {
 
     @Option(names = ["-v", "--verbose"], description = ["..."])
@@ -21,6 +21,9 @@ class LocalConfluenceCacheCommand @Inject constructor (
         if (verbose) {
             println("Hi!")
         }
+
+        confluenceClient.fetchContentObjects()
+
     }
 
     companion object {
